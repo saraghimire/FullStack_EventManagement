@@ -4,31 +4,26 @@ require_once '../includes/functions.php';
 require_once '../includes/template_helper.php';
 
 $error = null;
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (!empty($_POST['username']) && !empty($_POST['password'])) {
-        $username = $_POST['username'];
-        $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        
+    $user = trim($_POST['username']);
+    $pass = $_POST['password'];
+
+    if (!empty($user) && !empty($pass)) {
+        $hash = password_hash($pass, PASSWORD_DEFAULT);
         try {
             $stmt = $pdo->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-            $stmt->execute([$username, $hash]);
-            header("Location: login.php?msg=success");
+            $stmt->execute([$user, $hash]);
+            header("Location: login.php?msg=registered");
             exit;
         } catch (PDOException $e) {
-            // This checks if the error is actually a "Duplicate Entry" (Code 23000)
-            if ($e->getCode() == 23000) {
-                $error = "Username '$username' is already taken.";
-            } else {
-                // If it's another error (like a missing table), it will show the real message
-                $error = "Database Error: " . $e->getMessage();
-            }
+            $error = "Username already exists.";
         }
     } else {
-        $error = "Please fill in both fields.";
+        $error = "All fields are required.";
     }
 }
 
 include '../includes/header.php';
+// IMPORTANT: The key below must be 'type' to match the template
 echo render('auth_view', ['type' => 'Signup', 'error' => $error]);
 include '../includes/footer.php';
