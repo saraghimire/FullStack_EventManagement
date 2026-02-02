@@ -83,12 +83,10 @@ class AuthController {
         exit;
     }
 
-    // Helper to load views (Same as in EventController)
+    // Helper to load views 
     private function render($view, $data = []) {
         extract($data); // Converts ['error' => 'text'] into $error = 'text';
         
-        // Note: We don't necessarily need header/footer for auth pages 
-        // depending on your design, but here is the standard inclusion:
         require '../app/Views/layout/header.php';
         require "../app/Views/$view.php";
         require '../app/Views/layout/footer.php';

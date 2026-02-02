@@ -18,7 +18,7 @@ class UserModel {
         try {
             $stmt = $this->pdo->prepare("INSERT INTO users (username, password, role) VALUES (?, ?, ?)");
             $stmt->execute([$username, $passwordHash, $role]);
-         //   return $stmt->execute([$username, $passwordHash]);
+
         } catch (PDOException $e) {
             // Usually error 23000 means duplicate entry (username taken)
             return false;

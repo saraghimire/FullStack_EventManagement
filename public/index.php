@@ -3,7 +3,7 @@
 require_once '../config/db.php';
 require_once '../includes/functions.php';
 
-// 2. Connect to Database (Using your new Class)
+// 2. Connect to Database (Using Class)
 $pdo = Database::connect();
 
 // 3. Load Controllers
@@ -44,19 +44,19 @@ switch ($page) {
 
     // --- EVENT ROUTES ---
     case 'create':
-        $eventController->create(); // Was add.php
+        $eventController->create();
         break;
         
     case 'edit':
-        $eventController->edit();   // Was edit.php
+        $eventController->edit();
         break;
         
     case 'delete':
-        $eventController->delete(); // Was delete.php
+        $eventController->delete();
         break;
         
     case 'join':
-        $eventController->join();   // Was register.php
+        $eventController->join();
         break;
 
     case 'my_events':
@@ -71,7 +71,7 @@ switch ($page) {
             header("Location: index.php?page=login");
             exit;
         }
-        $eventController->index();  // Was index.php
+        $eventController->index();
         break;
 }
 ?>

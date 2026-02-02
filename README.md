@@ -132,3 +132,4 @@ Event Master is a professional, full-stack Event Management System built using a
    Username: amshu
    Password: 12345
 
+# -------------------------------------

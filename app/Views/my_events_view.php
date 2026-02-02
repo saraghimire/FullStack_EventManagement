@@ -1,12 +1,10 @@
-<!-- app/Views/my_events_view.php -->
- 
 <!-- FLASH MESSAGE LOGIC -->
 <?php if(isset($_SESSION['flash_message'])): ?>
     <div class="alert alert-<?= $_SESSION['flash_type'] ?>">
         <?= $_SESSION['flash_message'] ?>
     </div>
     <?php 
-        // Clear the message so it doesn't show again on refresh
+        
         unset($_SESSION['flash_message']);
         unset($_SESSION['flash_type']);
     ?>

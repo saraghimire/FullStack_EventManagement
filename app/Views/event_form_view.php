@@ -1,7 +1,7 @@
 <div class="card-container">
     <div class="form-card">
         <div class="card-header">
-            <h2><?= e($title) ?></h2> <!-- This fixes the error -->
+            <h2><?= e($title) ?></h2> 
             <p>Enter the details below to host a new event.</p>
         </div>
 

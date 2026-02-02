@@ -2,13 +2,12 @@
 require_once '../config/db.php';
 require_once '../includes/functions.php';
 
-// Since this is a standalone file, we must manually start session to check protection
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 protect_page();
 
-// 1. Connect using the new Class method
+// 1. Connect using the Class method
 $pdo = Database::connect();
 
 $q = "%" . ($_GET['q'] ?? '') . "%";
@@ -18,7 +17,7 @@ $stmt = $pdo->prepare("SELECT * FROM events WHERE title LIKE ? OR category LIKE 
 $stmt->execute([$q, $q]);
 $results = $stmt->fetchAll();
 
-// 3. Output HTML Rows with UPDATED LINKS
+// 3. Output HTML Rows with LINKS
 foreach ($results as $row) {
     echo "<tr>
             <td>".e($row['title'])."</td>
