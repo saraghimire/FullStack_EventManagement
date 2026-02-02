@@ -8,7 +8,7 @@ function e($text) {
 
 function protect_page() {
     if (!isset($_SESSION['user_id'])) {
-        header("Location: login.php");
+        header("Location: index.php?page=login");
         exit;
     }
 }
@@ -23,4 +23,12 @@ function get_token() {
 
 function verify_token($token) {
     return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
+}
+
+//function for admin role
+function protect_admin() {
+    protect_page(); 
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+        die("Unauthorized: You do not have admin privileges. Current Role: " . ($_SESSION['role'] ?? 'None'));
+    }
 }

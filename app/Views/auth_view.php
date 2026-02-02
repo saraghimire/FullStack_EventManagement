@@ -24,9 +24,9 @@
     
     <p style="margin-top: 15px;">
         <?php if($type === 'Login'): ?>
-            New user? <a href="signup.php">Create an account here</a>.
+            New user? <a href="index.php?page=signup">Create an account here</a>.
         <?php else: ?>
-            Already have an account? <a href="login.php">Login here</a>.
+            Already have an account? <a href="index.php?page=login">Login here</a>.
         <?php endif; ?>
     </p>
 </div>

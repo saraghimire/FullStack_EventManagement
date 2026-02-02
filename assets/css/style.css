@@ -1,4 +1,4 @@
-:root { --navy: #003366; --bg: #f5f7f9; }
+:root { --navy: #0d573c; --bg: #f5f7f9; }
 body { margin: 0; background: var(--bg); font-family: 'Segoe UI', sans-serif; }
 header { background: var(--navy); color: white; padding: 20px 5%; display: flex; justify-content: space-between; }
 .main-container { display: flex; min-height: 90vh; }
@@ -28,7 +28,7 @@ th, td { padding: 12px; border: 1px solid #eee; text-align: left; }
     padding: 35px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border-top: 5px solid #003366; /* Embassy Blue */
+    border-top: 5px solid #006631; 
 }
 
 .card-header h2 { margin: 0; color: #333; }
@@ -53,7 +53,7 @@ th, td { padding: 12px; border: 1px solid #eee; text-align: left; }
 }
 
 .form-group input:focus {
-    border-color: #003366;
+    border-color: #05532f;
     outline: none;
     background: #fff;
 }
@@ -68,7 +68,7 @@ th, td { padding: 12px; border: 1px solid #eee; text-align: left; }
 }
 
 .btn-save {
-    background: #003366;
+    background: #08501e;
     color: white;
     padding: 12px 30px;
     border: none;
@@ -79,3 +79,25 @@ th, td { padding: 12px; border: 1px solid #eee; text-align: left; }
 
 .btn-cancel { color: #666; text-decoration: none; }
 .btn-cancel:hover { color: #d9534f; }
+
+/* --- Flash Messages --- */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    max-width: 800px; /*  keep it from stretching too wide */
+}
+
+.alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #10b981;
+}
+
+.alert-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #ef4444;
+}
